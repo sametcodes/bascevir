@@ -9,9 +9,11 @@ _bascevir_, seçilen kelime/cümle için çeviri yapan bir eklentidir. Yabancı 
 
 ![](bascevir.gif)
 
-### kullanım tavsiyesi
+### kullanım tavsiyeleri
 
-> Eklentiyi çeviri aracı olarak değil yazının bağlamından kopmamak için yardımcı bir araç olarak kullanın. Bir çok kelime için çeviri karşılığı doğru olmayabilir. Kelime öğrenmek için mutlaka sözlükten anlamına bakınız.
+Bir çok site üzerinde sağlıklı çalışıyor fakat en ideal kullanım için [Pocket](https://getpocket.com) üzerinde kullanılmasını tavsiye ediyorum.
+
+> Dil öğrenenler için: eklentiyi çeviri aracı olarak değil yazının bağlamından kopmamak için yardımcı bir araç olarak kullanın. Bir çok kelime için çeviri karşılığı doğru olmayabilir. Kelime öğrenmek için mutlaka sözlükten anlamına bakınız.
 
 
 ### uyarı
