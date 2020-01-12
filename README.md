@@ -26,4 +26,4 @@ _eklenecek_ 😬
 
 ### katkı için
 
-Karşılaştığınız bir hatayı [issue açarak](issues/new) bildirebilirsiniz 💃
+Karşılaştığınız bir hatayı [issue açarak](https://github.com/selmansamet/bascevir/issues/new) bildirebilirsiniz 💃
