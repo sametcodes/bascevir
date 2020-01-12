@@ -57,18 +57,23 @@ const createPopup = (id, word, text, x, y, clientWidth) => {
 }
 
 const injectHighlight = (selection, id) => {
+	let {anchorOffset: start, focusOffset: end} = selection;
+	if(start > end){
+		[start, end] = [end, start]
+	}
+
 	let parentElement = selection.anchorNode.parentElement;
 	const highlight = Array.from(selection.anchorNode.textContent).map((_, key) => {
-		if(key === selection.anchorOffset){
+		if(key === start){
 			return `<span class="${id} onetap-highlight" style="background-color: #b65656; color: #fff">${_}`
 		}
-		if(key === selection.focusOffset){
+		if(key === end){
 			return `${_.trim("")}</span> `
 		}
 		return _;
 	}).filter(Boolean).join("");
 
-	parentElement.innerHTML = parentElement.innerHTML.replace(selection.anchorNode.textContent, highlight)
+	parentElement.innerHTML = parentElement.innerHTML.replace(selection.anchorNode.textContent, highlight);
 
 	let {top, left, width, height} = document.querySelector(`span.${id}`).getBoundingClientRect();
 	if((left + window.pageXOffset + width) < document.body.clientWidth/2){
@@ -84,7 +89,6 @@ const injectHighlight = (selection, id) => {
 		if(div){ div.remove() }
 	})
 
-
 	return { x: left + window.pageXOffset + width, y: top + window.pageYOffset + height - 5,  }
 }
 
@@ -94,11 +98,10 @@ document.addEventListener("click", mouse => {
    	}
 
 	const selection = window.getSelection();
-	console.log(selection)
 	const word = selection.toString();
 	if(!word){ return };
 
-	const id = Math.random().toString(36).substring(7);
+	const id = "h" + Math.random().toString(36).substring(7);
 
 	
 	const {x, y} = injectHighlight(selection, id)
