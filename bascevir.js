@@ -1,10 +1,10 @@
-const get = (sl, tl, q) => {
+const getWord = (sl, tl, q) => {
 	q = q.replace(".", "").replace("?", "").replace(",", ",")
 	return fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodeURI(q)}`)
   	.then(res => res.ok ? res.json() : res.text());
 }
 
-const createPopup = (id, text, x, y, clientWidth) => {
+const createPopup = (id, word, text, x, y, clientWidth) => {
 
 	let offsetX;
 	let r = (x > clientWidth / 2 ? 1 : -1);
@@ -14,7 +14,6 @@ const createPopup = (id, text, x, y, clientWidth) => {
 		offsetX = 350-x;
 	}
 
-
 	const popup = document.createElement("div");
 	popup.setAttribute("id", id)
 	popup.style.top = y + "px";
@@ -23,10 +22,15 @@ const createPopup = (id, text, x, y, clientWidth) => {
 	popup.style.height = "0px";
 	popup.style.position = "absolute";
 	popup.style.zIndex = "5";
+	popup.style.userSelect = "none";
+
+	const link = document.createElement("a");
+	link.href = `https://translate.google.com/#view=home&op=translate&sl=en&tl=tr&text=${word}`;
+	link.target = "_blank";
 
 	const content = document.createElement("span")
-	content.setAttribute("class", "content");
 	content.innerText = text;
+	content.setAttribute("class", "content");
 	content.style.display = "inline";
 	content.style.maxWidth = "300px";
 	content.style.width = "max-content";
@@ -39,7 +43,9 @@ const createPopup = (id, text, x, y, clientWidth) => {
 	content.style.color = "#fff";
 	content.style.marginTop = "-5px";
 
-	popup.appendChild(content);
+	link.appendChild(content)
+
+	popup.appendChild(link);
 	document.body.appendChild(popup);
 
 	content.style.left = (offsetX - (Number(r === -1) * content.clientWidth)) + "px";
@@ -94,9 +100,9 @@ document.addEventListener("click", mouse => {
 
 	const id = Math.random().toString(36).substring(7);
 
+	
 	const {x, y} = injectHighlight(selection, id)
-
-	get("en", "tr", word).then((res) => {
-		createPopup(id, res[0][0][0], x, y, document.body.clientWidth)
+	getWord("en", "tr", word).then((res) => {
+		createPopup(id, word, res[0][0][0], x, y, document.body.clientWidth)
 	}).catch(console.log)
 });
