@@ -4,7 +4,10 @@
   "version": "1.0",
   "description": "Get the meaning of words that you don't know when reading. It will help you stay on the page.",
   "icons": {
-      "64": "icons/64.png"
+      "64": "icons/64.png",
+      "128": "icons/128.png",
+      "256": "icons/256.png",
+      "512": "icons/512.png"
   },
   "content_scripts": [
     {
