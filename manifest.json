@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "basçevir",
+  "version": "1.0",
+  "description": "Get the meaning of words that you don't know when reading. It will help you stay on the page.",
+  "icons": {
+      "64": "icons/64.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["bascevir.js", "svg.min.js"]
+    }
+  ],
+  "permissions": [
+	  "webRequest",
+	  "<all_urls>"
+  ]
+}
