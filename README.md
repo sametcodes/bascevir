@@ -28,6 +28,7 @@ Bu eklenti herhangi bir anahtar gerektirmeyen _google translate single api_ kull
 
 ### yapılacaklar
 
+- [ ] Dil seçenekleri
 - [ ] [Kişiselleştirilmiş çevrimiçi sözlükler](https://github.com/selmansamet/bascevir/issues/2)
 - [ ] Birden fazla cevap dönmesi için kullanıcının kendi Google API anahtarı tanımlayabilmesi
 
