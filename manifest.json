@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "bascevir",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Get the meaning of words that you don't know when reading. It will help you stay on the page.",
   "icons": {
       "64": "icons/64.png",
