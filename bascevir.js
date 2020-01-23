@@ -172,7 +172,7 @@ document.addEventListener("click",  event => {
 
 	const id = "h" + Math.random().toString(36).substring(7);
 	const {x, y} = injectHighlight(selection, id)
-	createPopup(id, word, word, x, y, document.body.clientWidth)
-		//getWord("fr", "en", word).then((res) => {
-		//}).catch(console.log)
+	getWord("en", "tr", word).then(([[[res]]]) => {
+		createPopup(id, word, meaning, x, y, document.body.clientWidth)
+	}).catch(console.log)
 });
