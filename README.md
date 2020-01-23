@@ -24,7 +24,12 @@ Bu eklenti herhangi bir anahtar gerektirmeyen _google translate single api_ kull
 
 ### eklenti bağlantıları
 
-_eklenecek_ 😬
+[bascevir – 🦊 Firefox](https://addons.mozilla.org/en-US/firefox/addon/bascevir/)
+
+### yapılacaklar
+
+- [ ] Dil seçenekleri
+- [ ] [Kişiselleştirilmiş çevrimiçi sözlükler](https://github.com/selmansamet/bascevir/issues/2)
 
 ### katkı için
 
