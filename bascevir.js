@@ -1,6 +1,6 @@
 const linkCreator = {
 	cambridge: (sl, tl, word) => `https://dictionary.cambridge.org/dictionary/${sl}-${tl}/${word}`, 
-	tureng: (sl, tl, word) => `https://tureng.com/en/${sl}-${tl}/${word}`
+	tureng: (sl, tl, word) => `https://tureng.com/en/${tl}-${sl}/${word}`
 }
 
 const getWord = (sl, tl, q) => {
@@ -145,7 +145,7 @@ const removeHighlight = (nodes) => {
 const goDictionary = (id, word, sourcelang="english", targetlang="turkish") => {
 	browser.storage.sync.get('activeDictId').then(value => {
 		const activeDict = value.activeDictId;
-		if(activeDict in linkCreator){
+		if(activeDict && activeDict in linkCreator){
 			const link = linkCreator[activeDict](sourcelang, targetlang, word)
 			window.open(link, '_blank').focus();
 			return;

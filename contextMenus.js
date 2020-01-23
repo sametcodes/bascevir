@@ -15,11 +15,12 @@ function onCreated() {
 };
 
 browser.contextMenus.onClicked.addListener((info, tab) => {
-	if(info.type === "radio"){
+	if(dicts.map(dict => dict.id).includes(info.menuItemId)){
 		browser.storage.sync.set({
 			activeDictId: info.menuItemId
 		})
-	}else if(info.menuItemId === "permanentBoxes"){
+	}
+	if(info.menuItemId === "permanentBoxes"){
 		browser.storage.sync.set({
 			permanentBoxesValue: info.checked
 		})
@@ -28,7 +29,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 
 browser.storage.sync.get(['activeDictId', 'permanentBoxesValue']).then(values => {
 	let { activeDictId, permanentBoxesValue } = values;
-	if(!dicts.map(dict => dict.id).includes(activeDictId)){
+	if(!activeDictId || !dicts.map(dict => dict.id).includes(activeDictId)){
 		activeDictId = dicts[0].id;
 		browser.storage.sync.set({ activeDictId: dicts[0].id }) 
 	}
